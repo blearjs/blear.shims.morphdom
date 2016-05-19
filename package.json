@@ -1,7 +1,7 @@
 {
   "name": "blear.shims.morphdom",
   "version": "1.0.0",
-  "description": "JavaScript 词法分析",
+  "description": "DOM 按需更新",
   "scripts": {},
   "preferGlobal": false,
   "bin": {},
@@ -13,7 +13,7 @@
   "keywords": [
     "blear",
     "shims",
-    "lexer",
+    "morphdom",
     "cloudcome",
     "ydr.me"
   ],
