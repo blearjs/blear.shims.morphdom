@@ -20,15 +20,15 @@ var TEXT_NODE = Node.TEXT_NODE;
 var hasAttributeNS;
 
 if (testEl.hasAttributeNS) {
-    hasAttributeNS = function(el, namespaceURI, name) {
+    hasAttributeNS = function (el, namespaceURI, name) {
         return el.hasAttributeNS(namespaceURI, name);
     };
 } else if (testEl.hasAttribute) {
-    hasAttributeNS = function(el, namespaceURI, name) {
+    hasAttributeNS = function (el, namespaceURI, name) {
         return el.hasAttribute(name);
     };
 } else {
-    hasAttributeNS = function(el, namespaceURI, name) {
+    hasAttributeNS = function (el, namespaceURI, name) {
         return !!el.getAttributeNode(name);
     };
 }
@@ -63,7 +63,7 @@ var specialElHandlers = {
      * Needed for IE. Apparently IE doesn't think that "selected" is an
      * attribute when reading over the attributes using selectEl.attributes
      */
-    OPTION: function(fromEl, toEl) {
+    OPTION: function (fromEl, toEl) {
         fromEl.selected = toEl.selected;
         if (fromEl.selected) {
             fromEl.setAttribute('selected', '');
@@ -77,7 +77,7 @@ var specialElHandlers = {
      * "value" property will have no effect since it is only used to the set the
      * initial value.  Similar for the "checked" attribute, and "disabled".
      */
-    INPUT: function(fromEl, toEl) {
+    INPUT: function (fromEl, toEl) {
         fromEl.checked = toEl.checked;
         if (fromEl.checked) {
             fromEl.setAttribute('checked', '');
@@ -101,7 +101,7 @@ var specialElHandlers = {
         }
     },
 
-    TEXTAREA: function(fromEl, toEl) {
+    TEXTAREA: function (fromEl, toEl) {
         var newValue = toEl.value;
         if (fromEl.value !== newValue) {
             fromEl.value = newValue;
@@ -113,7 +113,8 @@ var specialElHandlers = {
     }
 };
 
-function noop() {}
+function noop() {
+}
 
 /**
  * Returns true if two node's names and namespace URIs are the same.
@@ -122,7 +123,7 @@ function noop() {}
  * @param {Element} b
  * @return {boolean}
  */
-var compareNodeNames = function(a, b) {
+var compareNodeNames = function (a, b) {
     return a.nodeName === b.nodeName &&
         a.namespaceURI === b.namespaceURI;
 };
@@ -501,7 +502,7 @@ function morphdom(fromNode, toNode, options) {
          * were earlier discarded.  If we find a match then we will move the
          * saved element into the final DOM tree.
          */
-        var handleMovedEl = function(el) {
+        var handleMovedEl = function (el) {
             var curChild = el.firstChild;
             while (curChild) {
                 var nextSibling = curChild.nextSibling;
@@ -538,7 +539,7 @@ function morphdom(fromNode, toNode, options) {
                 while (movedEls.length) {
                     var movedElsTemp = movedEls;
                     movedEls = [];
-                    for (var i=0; i<movedElsTemp.length; i++) {
+                    for (var i = 0; i < movedElsTemp.length; i++) {
                         if (handleMovedEl(movedElsTemp[i]) === false) {
                             // There are no more unmatched elements so completely end
                             // the loop
