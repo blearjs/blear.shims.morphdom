@@ -1,6 +1,6 @@
 {
   "name": "blear.shims.morphdom",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "DOM 按需更新",
   "scripts": {},
   "preferGlobal": false,
