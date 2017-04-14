@@ -1,7 +1,7 @@
 {
   "name": "blear.shims.morphdom",
-  "version": "1.1.0",
-  "description": "DOM 按需更新，基于 v2.2.0",
+  "version": "1.2.0",
+  "description": "DOM 按需更新，基于 v2.3.2",
   "scripts": {
     "live": "browser-sync start --config bs-config.js"
   },
